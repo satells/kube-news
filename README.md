@@ -15,3 +15,7 @@ DB_USERNAME => Usuário do banco de dados.
 DB_PASSWORD => Senha do usuário do banco de dados.
 
 DB_HOST => Endereço do banco de dados.
+
+docker container run -d -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=Pg123 -e POSTGRES_USER=kubenews -e POSTGRES_DB=kubenews -v kubenews_vol:/var/lib/postgresql/data postgres:14.10
+
+DB_DATABASE=kubenews DB_USERNAME=kubenews DB_PASSWORD=Pg123 DB_HOST=192.168.56.101 node server.js
