@@ -61,3 +61,15 @@ O volume pode ser especificado de duas maneiras
 h) criar container da aplicação
 
 docker container run -d -p 8080:8080 --name kube_news -e DB_DATABASE=kubenews -e DB_USERNAME=kubenews -e DB_PASSWORD=Pg123 -e DB_HOST=kube_news_db --network kube_news_net msergiost/kube-news:v1
+
+Docker Compose
+
+docker compose up -d
+
+docker compose up -d --remove-orphans
+
+docker compose down
+
+docker compose stop
+
+docker compose start

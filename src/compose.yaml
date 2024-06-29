@@ -1,0 +1,35 @@
+services:
+  postgres:
+    container_name: kube_news_db
+    image: postgres:12.17
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: Pg123
+      POSTGRES_USER: kubenews
+      POSTGRES_DB: kubenews
+    volumes:
+      #bind mount
+      - db_vol:/var/lib/postgresql/data
+    networks:
+      - kube_net
+  kube_news:
+    container_name: kube_news_web
+    image: msergiost/kube-news:v2
+    ports:
+      - 8080:8080
+    networks:
+      - kube_net
+    environment:
+      DB_DATABASE: kubenews
+      DB_USERNAME: kubenews
+      DB_PASSWORD: Pg123
+      DB_HOST: postgres
+volumes:
+  db_vol:
+    name: kube_news_vol
+networks:
+  kube_net:
+    name: kube_news_net
+    #external: true
+    driver: bridge
