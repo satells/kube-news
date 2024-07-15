@@ -32,6 +32,8 @@ c) enviar imagem ao docker hub
 
 docker push msergiost/kube-news:v1
 
+fds
+fds
 d) enviar a latest
 
 docker tag msergiost/kube-news:v1 msergiost/kube-news:latest
